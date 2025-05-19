@@ -1,6 +1,8 @@
+// Pagination.jsx
+
 import React from "react";
 
-const Pagination = ({ page, totalPage, onPageChange }) => {
+export const Pagination = ({ page, totalPages, onPageChange }) => {
   return (
     <div>
       <button onClick={() => onPageChange(page - 1)} disabled={page === 1}>
@@ -8,12 +10,10 @@ const Pagination = ({ page, totalPage, onPageChange }) => {
       </button>
       <button
         onClick={() => onPageChange(page + 1)}
-        disabled={page === totalPage}
+        disabled={page === totalPages}
       >
         Next
       </button>
     </div>
   );
 };
-
-export default Pagination;

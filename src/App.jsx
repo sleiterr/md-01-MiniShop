@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Pagination from "./components/Pagination/Pagination";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ProductContext } from "./ProductsContext/ProductsContext";
+
 import ProductList from "./components/ProductList/ProductList";
+import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
+import Products from "./Pages/Products/Products";
+import Header from "./components/Header/Header";
 import "./App.css";
 
 const PRODUCTS_PER_PAGE = 10;
@@ -28,10 +34,19 @@ function App() {
 
   return (
     <>
-      <h1>Products</h1>
-      <ProductList products={products} />
-
-      <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+      <ProductContext.Provider value={{ products, page, totalPages, setPage }}>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/products"
+              element={<Products products={products} />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </ProductContext.Provider>
     </>
   );
 }
