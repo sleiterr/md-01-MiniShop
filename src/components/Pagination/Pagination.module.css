@@ -1,0 +1,23 @@
+.btnContainer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  gap: 60px;
+}
+
+.btnPagination {
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+
+  width: 100px;
+  height: 40px;
+  border: none;
+  padding: 0px 20px;
+
+  background: linear-gradient(to right, #8be3fc, #576bff);
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 20px 30px -7px rgba(97, 118, 238, 0.5);
+}

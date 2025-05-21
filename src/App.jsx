@@ -7,6 +7,7 @@ import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import Products from "./Pages/Products/Products";
 import Header from "./components/Header/Header";
+import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import "./App.css";
 
 const PRODUCTS_PER_PAGE = 10;
@@ -34,12 +35,15 @@ function App() {
 
   return (
     <>
-      <ProductContext.Provider value={{ products, page, totalPages, setPage }}>
+      <ProductContext.Provider
+        value={{ products, page, totalPages, setPage, onPageChange: setPage }}
+      >
         <BrowserRouter>
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
             <Route
               path="/products"
               element={<Products products={products} />}

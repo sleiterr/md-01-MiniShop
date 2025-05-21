@@ -1,12 +1,40 @@
 //FilterPanel.jsx
 
 import React, { useEffect, useState } from "react";
+import styles from "./FilterPanel.module.css";
 
 // const { products } = useContext(ProductContext);
 const FilterPanel = ({ products, onFilter }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setsortBy] = useState("");
-  const [category, setcategory] = useState("all");
+
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("https://dummyjson.com/products/categories");
+        const data = await res.json();
+
+        console.log("Отримані категорії з API:", data);
+
+        if (Array.isArray(data)) {
+          const transformer = data.map((cat) => ({
+            value: cat.slug,
+            label: cat.name,
+          }));
+          setCategories(transformer);
+        } else {
+          console.error("Очікувався масив категорій, отримано:", data);
+        }
+      } catch (error) {
+        console.error("Помилка при отриманні категорій:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     let filtered = [...products];
@@ -21,7 +49,7 @@ const FilterPanel = ({ products, onFilter }) => {
       );
     }
 
-    if (category !== "all") {
+    if (category !== "") {
       filtered = filtered.filter((product) => product.category === category);
     }
 
@@ -34,23 +62,24 @@ const FilterPanel = ({ products, onFilter }) => {
     }
 
     onFilter(filtered);
-  }, [searchTerm, sortBy, category, products, onFilter]);
+  }, [searchTerm, sortBy, products, onFilter, category]);
 
   return (
     <div>
-      <div>
+      <div className={styles.formContainer}>
         <form>
           <div>
-            <label htmlFor="searchTherm">Search for Products: </label>
+            {/* <label htmlFor="searchTherm">Search for Products: </label> */}
             <input
               type="text"
               id="searchTerm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search for Products:"
             />
           </div>
 
-          <div>
+          <div className={styles.selectBox}>
             <label htmlFor="sortBy">Sort By:</label>
             <select
               id="sortBy"
@@ -63,18 +92,19 @@ const FilterPanel = ({ products, onFilter }) => {
               <option value="rating">Rating</option>
             </select>
           </div>
-          <div className="">
+          <div className={styles.selectBox}>
             <label htmlFor="category">Category: </label>
             <select
               id="category"
               value={category}
-              onChange={(e) => setcategory(e.target.value)}
+              onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="all">All</option>
-              <option value="beauty">Иeauty</option>
-              <option value="fragrances">Fragrances</option>
-              <option value="furniture">Furniture</option>
-              <option value="groceries">Groceries</option>
+              <option value="">Alle</option>
+              {categories.map((cat) => (
+                <option key={cat.value} value={cat.value}>
+                  {cat.label}
+                </option>
+              ))}
             </select>
           </div>
         </form>
