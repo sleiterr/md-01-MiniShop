@@ -26,10 +26,10 @@ const FilterPanel = ({ products, onFilter }) => {
           }));
           setCategories(transformer);
         } else {
-          console.error("Очікувався масив категорій, отримано:", data);
+          console.error("Expected an array of categories, but received:", data);
         }
       } catch (error) {
-        console.error("Помилка при отриманні категорій:", error);
+        console.error("Error while fetching categories:", error);
       }
     };
 
