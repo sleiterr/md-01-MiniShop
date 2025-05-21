@@ -1,4 +1,9 @@
+.homeSection {
+  background-color: moccasin;
+}
+
 .homeContainer {
+  position: relative;
   padding: 90px 0;
   height: 100vh;
 }
@@ -7,5 +12,23 @@
   font-weight: 500;
   font-size: 50px;
   color: #333;
-  text-align: center;
+  text-align: left;
+
+  width: 55%;
+}
+
+.heroSubtitle {
+  font-weight: 400;
+  font-size: 22px;
+  color: #333;
+  line-height: 26px;
+  letter-spacing: 0.04em;
+  width: 420px;
+
+  margin-top: 20px;
+}
+
+.homeTitleContainer {
+  position: absolute;
+  top: 35%;
 }
