@@ -1,0 +1,11 @@
+.homeContainer {
+  padding: 90px 0;
+  height: 100vh;
+}
+
+.homeTitle {
+  font-weight: 500;
+  font-size: 50px;
+  color: #333;
+  text-align: center;
+}

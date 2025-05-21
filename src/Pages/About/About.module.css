@@ -1,0 +1,10 @@
+.aboutContainer {
+  padding: 90px 0;
+  height: 100vh;
+}
+
+.aboutTitle {
+  font-size: 50px;
+  color: #333;
+  text-align: center;
+}

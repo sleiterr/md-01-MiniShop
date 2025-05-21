@@ -1,10 +1,15 @@
 import React from "react";
+import styles from "./Home.module.css";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <section>
+      <div className={`${styles.homeContainer} container`}>
+        <div>
+          <h1 className={ styles.homeTitle}>Home</h1>
+        </div>
+      </div>
+    </section>
   );
 };
 
