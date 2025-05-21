@@ -18,20 +18,23 @@ const ProductList = () => {
 
   return (
     <section>
-      <div className="container">
-        <h2>Products</h2>
-        <FilterPanel products={products} onFilter={setFilteredProducts} />
+      <div className={`${styles.paginationContainer}`}>
+        <h2 className={styles.productTitle}>Products</h2>
+        <div className={styles.filterPanel}>
+          <FilterPanel products={products} onFilter={setFilteredProducts} />
+        </div>
         <div className={styles.productList}>
           {(filteredProducts.length ? filteredProducts : products).map((p) => (
             <ProductCard key={p.id} products={p} />
           ))}
         </div>
-
-        <Pagination
-          page={page}
-          totalPages={totalPages}
-          onPageChange={onPageChange}
-        />
+        <div className={styles.paginationBox}>
+          <Pagination
+            page={page}
+            totalPages={totalPages}
+            onPageChange={onPageChange}
+          />
+        </div>
       </div>
     </section>
   );

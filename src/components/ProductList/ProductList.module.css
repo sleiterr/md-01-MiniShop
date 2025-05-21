@@ -1,8 +1,30 @@
+.paginationContainer {
+  padding: 120px 15px;
+  margin: 0 auto;
+  background-color: aliceblue;
+}
+
+.productTitle {
+  font-weight: 500;
+  font-size: 52px;
+  color: #333;
+
+  text-align: center;
+}
+
+.filterPanel {
+  padding: 60px 0;
+}
+
 .productList {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 
-  gap: 20px;
+  gap: 32px;
+}
+
+.paginationBox {
+  margin-top: 60px;
 }

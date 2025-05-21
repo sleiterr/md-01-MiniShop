@@ -7,10 +7,7 @@ import styles from "./Header.module.css";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <nav className={ styles.nav}>
-        <div className={styles.logoItem}>
-          <p>Logo</p>
-        </div>
+      <nav className={styles.nav}>
         <ul className={styles.navList}>
           <li>
             <Link className={styles.navItem} to="/">

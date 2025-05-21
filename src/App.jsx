@@ -9,6 +9,7 @@ import Products from "./Pages/Products/Products";
 import Header from "./components/Header/Header";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
 
 const PRODUCTS_PER_PAGE = 10;
 
@@ -51,6 +52,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </ProductContext.Provider>
+      <Footer />
     </>
   );
 }

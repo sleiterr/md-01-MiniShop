@@ -8,13 +8,12 @@
 
 .btnPagination {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
+  letter-spacing: 0.04em;
 
-  width: 100px;
-  height: 40px;
   border: none;
-  padding: 0px 20px;
+  padding: 14px 60px;
 
   background: linear-gradient(to right, #8be3fc, #576bff);
   cursor: pointer;

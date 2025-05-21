@@ -4,13 +4,13 @@
   justify-content: center;
 
   padding: 24px;
-  background-color: lightskyblue;
+  background-color: steelblue;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 
   width: 100%;
 }
@@ -29,4 +29,9 @@
   color: #fff;
 
   letter-spacing: 0.04em;
+}
+
+.navItem:hover {
+  transition: 0.3s ease;
+  color: #66fc02;
 }

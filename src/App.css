@@ -63,5 +63,5 @@ button {
 .container {
   width: min(100%, 1140px); /* parent size 100% width */
   margin: 0 auto;
-  padding: 0 15px;
+  /* padding: 0 15px; */
 }

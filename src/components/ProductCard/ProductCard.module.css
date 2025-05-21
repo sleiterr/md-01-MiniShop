@@ -18,7 +18,7 @@ img {
 .priceCard {
   font-weight: 500;
   font-size: 16px;
-  color: #333;
+  color: #000;
 
   line-height: 22px;
 }
@@ -39,8 +39,8 @@ img {
   justify-content: center;
 
   width: 260px;
-  height: 360px;
-  box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
+  height: 380px;
+  box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.20);
 
   background: #fff;
   padding: 12px;
